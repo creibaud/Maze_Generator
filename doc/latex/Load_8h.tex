@@ -1,0 +1,60 @@
+\doxysection{include/\+Load.h File Reference}
+\hypertarget{Load_8h}{}\label{Load_8h}\index{include/Load.h@{include/Load.h}}
+
+
+This file contains the declarations of the functions used to load a graph from a file.  
+
+
+{\ttfamily \#include "{}Maze.\+h"{}}\newline
+Include dependency graph for Load.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{Load_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{Load_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFileLoaded}{File\+Loaded}}
+\begin{DoxyCompactList}\small\item\em Represents the loaded file data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structFileLoaded}{File\+Loaded}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Load_8h_ac83cd47aef03a610e34ad6c93929217a}{load\+Graph}} (char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Loads a graph from a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the declarations of the functions used to load a graph from a file. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Load_8h_ac83cd47aef03a610e34ad6c93929217a}\label{Load_8h_ac83cd47aef03a610e34ad6c93929217a} 
+\index{Load.h@{Load.h}!loadGraph@{loadGraph}}
+\index{loadGraph@{loadGraph}!Load.h@{Load.h}}
+\doxysubsubsection{\texorpdfstring{loadGraph()}{loadGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structFileLoaded}{File\+Loaded}} \texorpdfstring{$\ast$}{*} load\+Graph (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Loads a graph from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the loaded file data. 
+\end{DoxyReturn}

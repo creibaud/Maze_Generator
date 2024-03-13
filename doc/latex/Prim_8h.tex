@@ -1,0 +1,136 @@
+\doxysection{include/\+Prim.h File Reference}
+\hypertarget{Prim_8h}{}\label{Prim_8h}\index{include/Prim.h@{include/Prim.h}}
+
+
+Header file for Prim\textquotesingle{}s algorithm implementation.  
+
+
+{\ttfamily \#include "{}Graph.\+h"{}}\newline
+{\ttfamily \#include "{}Heap.\+h"{}}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for Prim.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{Prim_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{Prim_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPrimResult}{Prim\+Result}}
+\begin{DoxyCompactList}\small\item\em Structure to store the result of Prim\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{Prim_8h_a067312bce34908590b22288f7c474369}{min\+Cost\+Index}} (int \texorpdfstring{$\ast$}{*}cost, bool \texorpdfstring{$\ast$}{*}mst\+Set, int num\+Nodes)
+\begin{DoxyCompactList}\small\item\em Find the index of the node with the minimum cost that is not yet included in the MST. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPrimResult}{Prim\+Result}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Prim_8h_aeba87a56b5b02317a3e2257784c7a470}{prim}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph)
+\begin{DoxyCompactList}\small\item\em Find the minimum spanning tree (MST) of a graph using Prim\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPrimResult}{Prim\+Result}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Prim_8h_a823ec16f453ea6eba728e4225ab543eb}{prim\+Heap}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph)
+\begin{DoxyCompactList}\small\item\em Find the minimum spanning tree (MST) of a graph using Prim\textquotesingle{}s algorithm with a heap. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Prim_8h_a6d887735e0de21b937019014baae26fb}{print\+MST}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph, int \texorpdfstring{$\ast$}{*}predecessors, int \texorpdfstring{$\ast$}{*}costs)
+\begin{DoxyCompactList}\small\item\em Print the minimum spanning tree (MST) of a graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for Prim\textquotesingle{}s algorithm implementation. 
+
+This file contains the declarations of functions and structures related to Prim\textquotesingle{}s algorithm. Prim\textquotesingle{}s algorithm is used to find the minimum spanning tree (MST) of a graph. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Prim_8h_a067312bce34908590b22288f7c474369}\label{Prim_8h_a067312bce34908590b22288f7c474369} 
+\index{Prim.h@{Prim.h}!minCostIndex@{minCostIndex}}
+\index{minCostIndex@{minCostIndex}!Prim.h@{Prim.h}}
+\doxysubsubsection{\texorpdfstring{minCostIndex()}{minCostIndex()}}
+{\footnotesize\ttfamily int min\+Cost\+Index (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{cost,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{mst\+Set,  }\item[{int}]{num\+Nodes }\end{DoxyParamCaption})}
+
+
+
+Find the index of the node with the minimum cost that is not yet included in the MST. 
+
+This function takes an array of costs and a boolean array indicating whether a node is already included in the MST. It returns the index of the node with the minimum cost that is not yet included in the MST.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cost} & The array of costs for each node. \\
+\hline
+{\em mst\+Set} & The boolean array indicating whether a node is already included in the MST. \\
+\hline
+{\em num\+Nodes} & The number of nodes in the graph. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the node with the minimum cost that is not yet included in the MST. 
+\end{DoxyReturn}
+\Hypertarget{Prim_8h_aeba87a56b5b02317a3e2257784c7a470}\label{Prim_8h_aeba87a56b5b02317a3e2257784c7a470} 
+\index{Prim.h@{Prim.h}!prim@{prim}}
+\index{prim@{prim}!Prim.h@{Prim.h}}
+\doxysubsubsection{\texorpdfstring{prim()}{prim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPrimResult}{Prim\+Result}} \texorpdfstring{$\ast$}{*} prim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Find the minimum spanning tree (MST) of a graph using Prim\textquotesingle{}s algorithm. 
+
+This function takes a graph and returns the minimum spanning tree (MST) using Prim\textquotesingle{}s algorithm. It uses an adjacency matrix representation of the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph for which to find the MST. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \doxylink{structPrimResult}{Prim\+Result} structure containing the MST. 
+\end{DoxyReturn}
+\Hypertarget{Prim_8h_a823ec16f453ea6eba728e4225ab543eb}\label{Prim_8h_a823ec16f453ea6eba728e4225ab543eb} 
+\index{Prim.h@{Prim.h}!primHeap@{primHeap}}
+\index{primHeap@{primHeap}!Prim.h@{Prim.h}}
+\doxysubsubsection{\texorpdfstring{primHeap()}{primHeap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structPrimResult}{Prim\+Result}} \texorpdfstring{$\ast$}{*} prim\+Heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph }\end{DoxyParamCaption})}
+
+
+
+Find the minimum spanning tree (MST) of a graph using Prim\textquotesingle{}s algorithm with a heap. 
+
+This function takes a graph and returns the minimum spanning tree (MST) using Prim\textquotesingle{}s algorithm. It uses a binary heap to efficiently find the node with the minimum cost.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph for which to find the MST. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \doxylink{structPrimResult}{Prim\+Result} structure containing the MST. 
+\end{DoxyReturn}
+\Hypertarget{Prim_8h_a6d887735e0de21b937019014baae26fb}\label{Prim_8h_a6d887735e0de21b937019014baae26fb} 
+\index{Prim.h@{Prim.h}!printMST@{printMST}}
+\index{printMST@{printMST}!Prim.h@{Prim.h}}
+\doxysubsubsection{\texorpdfstring{printMST()}{printMST()}}
+{\footnotesize\ttfamily void print\+MST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{int \texorpdfstring{$\ast$}{*}}]{predecessors,  }\item[{int \texorpdfstring{$\ast$}{*}}]{costs }\end{DoxyParamCaption})}
+
+
+
+Print the minimum spanning tree (MST) of a graph. 
+
+This function takes a graph, an array of predecessors, and an array of costs, and prints the minimum spanning tree (MST) of the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph for which to print the MST. \\
+\hline
+{\em predecessors} & The array of predecessors for each node in the MST. \\
+\hline
+{\em costs} & The array of costs for each node in the MST. \\
+\hline
+\end{DoxyParams}

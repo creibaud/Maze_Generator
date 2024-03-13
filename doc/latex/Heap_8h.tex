@@ -1,0 +1,207 @@
+\doxysection{include/\+Heap.h File Reference}
+\hypertarget{Heap_8h}{}\label{Heap_8h}\index{include/Heap.h@{include/Heap.h}}
+
+
+This file contains the declarations of the \doxylink{structMinHeap}{Min\+Heap} data structure and related functions.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for Heap.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{Heap_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{Heap_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}}
+\begin{DoxyCompactList}\small\item\em Represents a node in the \doxylink{structMinHeap}{Min\+Heap}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structMinHeap}{Min\+Heap}}
+\begin{DoxyCompactList}\small\item\em Represents a \doxylink{structMinHeap}{Min\+Heap} data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Heap_8h_ac6d1c9de85d22c88ce23b0d1edda1543}{create\+Min\+Heap\+Node}} (int id\+Node, int cost)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{structMinHeapNode}{Min\+Heap\+Node} with the given ID and cost. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Heap_8h_a86c7eb4d5e202d4087bde685ae659e52}{create\+Min\+Heap}} (int capacity)
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{structMinHeap}{Min\+Heap} with the given capacity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Heap_8h_a3cad67b06fd1f6c09f2e2d417a03f674}{swap\+Min\+Heap\+Node}} (\mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}b)
+\begin{DoxyCompactList}\small\item\em Swaps two \doxylink{structMinHeapNode}{Min\+Heap\+Node} pointers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Heap_8h_aa2fca6b4ff8254a17c4502fb8d635c52}{min\+Heapify}} (\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}min\+Heap, int id\+Node)
+\begin{DoxyCompactList}\small\item\em Restores the \doxylink{structMinHeap}{Min\+Heap} property starting from the given node index. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Heap_8h_a77cf628b3fb9ae664c900152c55468ee}{is\+Min\+Heap\+Empty}} (\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}min\+Heap)
+\begin{DoxyCompactList}\small\item\em Checks if the \doxylink{structMinHeap}{Min\+Heap} is empty. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Heap_8h_a6c22e9a51c6930aaa125e88d7824a8aa}{extract\+Min\+Heap\+Node}} (\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}min\+Heap)
+\begin{DoxyCompactList}\small\item\em Extracts the node with the minimum cost from the \doxylink{structMinHeap}{Min\+Heap}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Heap_8h_a2dbae359dc889fed6edd2b3afe6e0519}{decrease\+Min\+Heap\+Node\+Cost}} (\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}min\+Heap, int id\+Node, int new\+Cost)
+\begin{DoxyCompactList}\small\item\em Decreases the cost of the node with the given ID in the \doxylink{structMinHeap}{Min\+Heap}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Heap_8h_a6ca88846172a7f2f29b24bc68d42af63}{is\+In\+Min\+Heap}} (\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}min\+Heap, int id\+Node)
+\begin{DoxyCompactList}\small\item\em Checks if the node with the given ID is present in the \doxylink{structMinHeap}{Min\+Heap}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the declarations of the \doxylink{structMinHeap}{Min\+Heap} data structure and related functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Heap_8h_a86c7eb4d5e202d4087bde685ae659e52}\label{Heap_8h_a86c7eb4d5e202d4087bde685ae659e52} 
+\index{Heap.h@{Heap.h}!createMinHeap@{createMinHeap}}
+\index{createMinHeap@{createMinHeap}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{createMinHeap()}{createMinHeap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*} create\+Min\+Heap (\begin{DoxyParamCaption}\item[{int}]{capacity }\end{DoxyParamCaption})}
+
+
+
+Creates a new \doxylink{structMinHeap}{Min\+Heap} with the given capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em capacity} & The maximum capacity of the \doxylink{structMinHeap}{Min\+Heap}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \doxylink{structMinHeap}{Min\+Heap}. 
+\end{DoxyReturn}
+\Hypertarget{Heap_8h_ac6d1c9de85d22c88ce23b0d1edda1543}\label{Heap_8h_ac6d1c9de85d22c88ce23b0d1edda1543} 
+\index{Heap.h@{Heap.h}!createMinHeapNode@{createMinHeapNode}}
+\index{createMinHeapNode@{createMinHeapNode}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{createMinHeapNode()}{createMinHeapNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*} create\+Min\+Heap\+Node (\begin{DoxyParamCaption}\item[{int}]{id\+Node,  }\item[{int}]{cost }\end{DoxyParamCaption})}
+
+
+
+Creates a new \doxylink{structMinHeapNode}{Min\+Heap\+Node} with the given ID and cost. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Node} & The ID of the node. \\
+\hline
+{\em cost} & The cost associated with the node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the newly created \doxylink{structMinHeapNode}{Min\+Heap\+Node}. 
+\end{DoxyReturn}
+\Hypertarget{Heap_8h_a2dbae359dc889fed6edd2b3afe6e0519}\label{Heap_8h_a2dbae359dc889fed6edd2b3afe6e0519} 
+\index{Heap.h@{Heap.h}!decreaseMinHeapNodeCost@{decreaseMinHeapNodeCost}}
+\index{decreaseMinHeapNodeCost@{decreaseMinHeapNodeCost}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{decreaseMinHeapNodeCost()}{decreaseMinHeapNodeCost()}}
+{\footnotesize\ttfamily void decrease\+Min\+Heap\+Node\+Cost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}}]{min\+Heap,  }\item[{int}]{id\+Node,  }\item[{int}]{new\+Cost }\end{DoxyParamCaption})}
+
+
+
+Decreases the cost of the node with the given ID in the \doxylink{structMinHeap}{Min\+Heap}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Heap} & Pointer to the \doxylink{structMinHeap}{Min\+Heap}. \\
+\hline
+{\em id\+Node} & The ID of the node. \\
+\hline
+{\em new\+Cost} & The new cost for the node. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Heap_8h_a6c22e9a51c6930aaa125e88d7824a8aa}\label{Heap_8h_a6c22e9a51c6930aaa125e88d7824a8aa} 
+\index{Heap.h@{Heap.h}!extractMinHeapNode@{extractMinHeapNode}}
+\index{extractMinHeapNode@{extractMinHeapNode}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{extractMinHeapNode()}{extractMinHeapNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*} extract\+Min\+Heap\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}}]{min\+Heap }\end{DoxyParamCaption})}
+
+
+
+Extracts the node with the minimum cost from the \doxylink{structMinHeap}{Min\+Heap}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Heap} & Pointer to the \doxylink{structMinHeap}{Min\+Heap}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the \doxylink{structMinHeapNode}{Min\+Heap\+Node} with the minimum cost. 
+\end{DoxyReturn}
+\Hypertarget{Heap_8h_a6ca88846172a7f2f29b24bc68d42af63}\label{Heap_8h_a6ca88846172a7f2f29b24bc68d42af63} 
+\index{Heap.h@{Heap.h}!isInMinHeap@{isInMinHeap}}
+\index{isInMinHeap@{isInMinHeap}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{isInMinHeap()}{isInMinHeap()}}
+{\footnotesize\ttfamily bool is\+In\+Min\+Heap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}}]{min\+Heap,  }\item[{int}]{id\+Node }\end{DoxyParamCaption})}
+
+
+
+Checks if the node with the given ID is present in the \doxylink{structMinHeap}{Min\+Heap}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Heap} & Pointer to the \doxylink{structMinHeap}{Min\+Heap}. \\
+\hline
+{\em id\+Node} & The ID of the node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the node is present in the \doxylink{structMinHeap}{Min\+Heap}, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{Heap_8h_a77cf628b3fb9ae664c900152c55468ee}\label{Heap_8h_a77cf628b3fb9ae664c900152c55468ee} 
+\index{Heap.h@{Heap.h}!isMinHeapEmpty@{isMinHeapEmpty}}
+\index{isMinHeapEmpty@{isMinHeapEmpty}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{isMinHeapEmpty()}{isMinHeapEmpty()}}
+{\footnotesize\ttfamily bool is\+Min\+Heap\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}}]{min\+Heap }\end{DoxyParamCaption})}
+
+
+
+Checks if the \doxylink{structMinHeap}{Min\+Heap} is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Heap} & Pointer to the \doxylink{structMinHeap}{Min\+Heap}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the \doxylink{structMinHeap}{Min\+Heap} is empty, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{Heap_8h_aa2fca6b4ff8254a17c4502fb8d635c52}\label{Heap_8h_aa2fca6b4ff8254a17c4502fb8d635c52} 
+\index{Heap.h@{Heap.h}!minHeapify@{minHeapify}}
+\index{minHeapify@{minHeapify}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{minHeapify()}{minHeapify()}}
+{\footnotesize\ttfamily void min\+Heapify (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMinHeap}{Min\+Heap}} \texorpdfstring{$\ast$}{*}}]{min\+Heap,  }\item[{int}]{id\+Node }\end{DoxyParamCaption})}
+
+
+
+Restores the \doxylink{structMinHeap}{Min\+Heap} property starting from the given node index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min\+Heap} & Pointer to the \doxylink{structMinHeap}{Min\+Heap}. \\
+\hline
+{\em id\+Node} & The index of the node to start heapify from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Heap_8h_a3cad67b06fd1f6c09f2e2d417a03f674}\label{Heap_8h_a3cad67b06fd1f6c09f2e2d417a03f674} 
+\index{Heap.h@{Heap.h}!swapMinHeapNode@{swapMinHeapNode}}
+\index{swapMinHeapNode@{swapMinHeapNode}!Heap.h@{Heap.h}}
+\doxysubsubsection{\texorpdfstring{swapMinHeapNode()}{swapMinHeapNode()}}
+{\footnotesize\ttfamily void swap\+Min\+Heap\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{structMinHeapNode}{Min\+Heap\+Node}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})}
+
+
+
+Swaps two \doxylink{structMinHeapNode}{Min\+Heap\+Node} pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Pointer to the first \doxylink{structMinHeapNode}{Min\+Heap\+Node} pointer. \\
+\hline
+{\em b} & Pointer to the second \doxylink{structMinHeapNode}{Min\+Heap\+Node} pointer. \\
+\hline
+\end{DoxyParams}

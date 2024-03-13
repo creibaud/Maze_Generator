@@ -1,0 +1,103 @@
+\doxysection{include/\+Maze.h File Reference}
+\hypertarget{Maze_8h}{}\label{Maze_8h}\index{include/Maze.h@{include/Maze.h}}
+
+
+This file contains the declarations of the functions used to create and print a maze.  
+
+
+{\ttfamily \#include "{}Prim.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for Maze.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{Maze_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{Maze_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structMaze}{Maze}}
+\begin{DoxyCompactList}\small\item\em Structure representing a maze. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structMaze}{Maze}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{Maze_8h_aae896f34eefbf602cbaf33d6a91be947}{create\+Maze}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}graph, int width, int height, char \texorpdfstring{$\ast$}{*}type\+Prim)
+\begin{DoxyCompactList}\small\item\em Creates a maze based on a given graph and dimensions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Maze_8h_a7c9d707df3d4e74780325643629ee2ec}{print\+PPM}} (\mbox{\hyperlink{structMaze}{Maze}} \texorpdfstring{$\ast$}{*}maze, char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Prints the maze as a PPM image file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{Maze_8h_aa4fd468ff75967ad86ba171192b9297c}{print\+Maze}} (\mbox{\hyperlink{structMaze}{Maze}} \texorpdfstring{$\ast$}{*}maze)
+\begin{DoxyCompactList}\small\item\em Prints the maze to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the declarations of the functions used to create and print a maze. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Maze_8h_aae896f34eefbf602cbaf33d6a91be947}\label{Maze_8h_aae896f34eefbf602cbaf33d6a91be947} 
+\index{Maze.h@{Maze.h}!createMaze@{createMaze}}
+\index{createMaze@{createMaze}!Maze.h@{Maze.h}}
+\doxysubsubsection{\texorpdfstring{createMaze()}{createMaze()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMaze}{Maze}} \texorpdfstring{$\ast$}{*} create\+Maze (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{graph,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{char \texorpdfstring{$\ast$}{*}}]{type\+Prim }\end{DoxyParamCaption})}
+
+
+
+Creates a maze based on a given graph and dimensions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph used to generate the maze. \\
+\hline
+{\em width} & The width of the maze. \\
+\hline
+{\em height} & The height of the maze. \\
+\hline
+{\em type\+Prim} & The type of Prim\textquotesingle{}s algorithm to use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the created maze. 
+\end{DoxyReturn}
+\Hypertarget{Maze_8h_aa4fd468ff75967ad86ba171192b9297c}\label{Maze_8h_aa4fd468ff75967ad86ba171192b9297c} 
+\index{Maze.h@{Maze.h}!printMaze@{printMaze}}
+\index{printMaze@{printMaze}!Maze.h@{Maze.h}}
+\doxysubsubsection{\texorpdfstring{printMaze()}{printMaze()}}
+{\footnotesize\ttfamily void print\+Maze (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMaze}{Maze}} \texorpdfstring{$\ast$}{*}}]{maze }\end{DoxyParamCaption})}
+
+
+
+Prints the maze to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maze} & The maze to print. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Maze_8h_a7c9d707df3d4e74780325643629ee2ec}\label{Maze_8h_a7c9d707df3d4e74780325643629ee2ec} 
+\index{Maze.h@{Maze.h}!printPPM@{printPPM}}
+\index{printPPM@{printPPM}!Maze.h@{Maze.h}}
+\doxysubsubsection{\texorpdfstring{printPPM()}{printPPM()}}
+{\footnotesize\ttfamily void print\+PPM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMaze}{Maze}} \texorpdfstring{$\ast$}{*}}]{maze,  }\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+Prints the maze as a PPM image file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maze} & The maze to print. \\
+\hline
+{\em filename} & The name of the PPM image file. \\
+\hline
+\end{DoxyParams}

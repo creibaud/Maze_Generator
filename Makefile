@@ -33,6 +33,12 @@ launch-app:
 launch-tests:
 	for test in bin/tests/*; do $$test upload/map.txt; done
 
+doc:
+	doxygen Doxyfile
+	cd doc/latex/ && make
+	cd ../..
+	cp doc/latex/refman.pdf doc/doc.pdf
+
 clean-obj:
 	rm -f obj/*.o
 
@@ -60,4 +66,4 @@ git-push:
 	git commit -m "$$message"
 	git push
 
-.PHONY: all compile-app compile-tests launch-app launch-tests clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload full-clean git-push
+.PHONY: all compile-app compile-tests launch-app launch-tests doc clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload full-clean git-push

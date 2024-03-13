@@ -1,0 +1,29 @@
+\doxysection{Prim.\+h}
+\hypertarget{Prim_8h_source}{}\label{Prim_8h_source}\index{include/Prim.h@{include/Prim.h}}
+\mbox{\hyperlink{Prim_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ PRIM\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ PRIM\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Graph_8h}{Graph.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Heap_8h}{Heap.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structPrimResult_aee4a0e9a2ca99fe99760a82d67cacd8f}{predecessors}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structPrimResult_ac2a7e7081b749203d9f7b0ba112be441}{totalCost}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \}\ \mbox{\hyperlink{structPrimResult}{PrimResult}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Prim_8h_a067312bce34908590b22288f7c474369}{minCostIndex}}(\textcolor{keywordtype}{int}\ *cost,\ \textcolor{keywordtype}{bool}\ *mstSet,\ \textcolor{keywordtype}{int}\ numNodes);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00051\ \mbox{\hyperlink{structPrimResult}{PrimResult}}\ *\mbox{\hyperlink{Prim_8h_aeba87a56b5b02317a3e2257784c7a470}{prim}}(\mbox{\hyperlink{structGraph}{Graph}}*\ graph);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00062\ \mbox{\hyperlink{structPrimResult}{PrimResult}}\ *\mbox{\hyperlink{Prim_8h_a823ec16f453ea6eba728e4225ab543eb}{primHeap}}(\mbox{\hyperlink{structGraph}{Graph}}*\ graph);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{Prim_8h_a6d887735e0de21b937019014baae26fb}{printMST}}(\mbox{\hyperlink{structGraph}{Graph}}*\ graph,\ \textcolor{keywordtype}{int}\ *predecessors,\ \textcolor{keywordtype}{int}\ *costs);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRIM\_H}}
+
+\end{DoxyCode}
