@@ -91,7 +91,6 @@ PrimResult *primHeap(Graph* graph) {
             }
             temp = temp->nextNode;
         }
-        printf("-> %d %p\n", currentNodeIndex, currentNode);
         free(currentNode);
     }
 

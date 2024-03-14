@@ -173,6 +173,8 @@ bool doYouSaveFile() {
 	printf("Do you want to save the maze to a file ? (y/n)\n");
 	
 	while (true) {
+		while (getchar() != '\n');
+
 		printf("\033[33;92m>\033[0m \033[33;96m");
 		scanf("%c", &userInput);
 		printf("\033[0m");
