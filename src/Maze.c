@@ -4,9 +4,9 @@ Maze *createMaze(Graph *graph, int width, int height, char *typePrim) {
     PrimResult *resultPrim = NULL;
 
     if (strcmp(typePrim, "heap") == 0) {
-        resultPrim = primHeap(graph);
+        resultPrim = primHeap(graph, true);
     } else {
-        resultPrim = prim(graph);
+        resultPrim = prim(graph, true);
     }
 
     Maze *maze = (Maze *)malloc(sizeof(Maze));

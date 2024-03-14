@@ -20,7 +20,7 @@ void testPrim() {
     addEdge(graph, 2, 4, 5);
     addEdge(graph, 3, 4, 3);
 
-    PrimResult* result = prim(graph);
+    PrimResult* result = prim(graph, false);
 
     assert(result->totalCost == 9);
 
@@ -44,7 +44,7 @@ void testPrimHeap() {
     addEdge(graph, 2, 4, 5);
     addEdge(graph, 3, 4, 3);
 
-    PrimResult* result = primHeap(graph);
+    PrimResult* result = primHeap(graph, false);
 
     assert(result->totalCost == 9);
 

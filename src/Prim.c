@@ -14,7 +14,7 @@ int minCostIndex(int *cost, bool *mstSet, int numNodes) {
     return minIndex;
 }
 
-PrimResult *prim(Graph* graph) {
+PrimResult *prim(Graph* graph, bool randomization) {
     int *predecessors = (int*)malloc(graph->numNodes * sizeof(int));
     int *costs = (int*)malloc(graph->numNodes * sizeof(int));
     bool *visited = (bool*)malloc(graph->numNodes * sizeof(bool));
@@ -27,7 +27,7 @@ PrimResult *prim(Graph* graph) {
     }
 
     srand(time(NULL));
-    int startNodeId = rand() % graph->numNodes;
+    int startNodeId = randomization ? rand() % graph->numNodes : 0;
     costs[startNodeId] = 0;
 
     for (int _ = 0; _ < graph->numNodes - 1; _++) {
@@ -58,7 +58,7 @@ PrimResult *prim(Graph* graph) {
     return result;
 }
 
-PrimResult *primHeap(Graph* graph) {
+PrimResult *primHeap(Graph* graph, bool randomization) {
     PrimResult *result = (PrimResult *)malloc(sizeof(PrimResult));
     result->predecessors = (int*)malloc(graph->numNodes * sizeof(int));
     int *costs = (int*)malloc(graph->numNodes * sizeof(int));
@@ -71,7 +71,7 @@ PrimResult *primHeap(Graph* graph) {
     }
 
     srand(time(NULL));
-    int startNodeId = rand() % graph->numNodes;
+    int startNodeId = randomization ? rand() % graph->numNodes : 0;
     costs[startNodeId] = 0;
     minHeap->nodes[startNodeId]->idNode = startNodeId;
     minHeap->nodes[startNodeId]->cost = costs[startNodeId];

@@ -48,9 +48,11 @@ int minCostIndex(int *cost, bool *mstSet, int numNodes);
  * It uses an adjacency matrix representation of the graph.
  * 
  * @param graph The graph for which to find the MST.
+ * @param randomization A boolean value indicating whether to use randomization in the
+ * algorithm or not.
  * @return A pointer to the PrimResult structure containing the MST.
  ******************************************************************************************/
-PrimResult *prim(Graph* graph);
+PrimResult *prim(Graph* graph, bool randomization);
 
 /******************************************************************************************
  * @brief Find the minimum spanning tree (MST) of a graph using Prim's algorithm with a 
@@ -61,9 +63,11 @@ PrimResult *prim(Graph* graph);
  * It uses a binary heap to efficiently find the node with the minimum cost.
  * 
  * @param graph The graph for which to find the MST.
+ * @param randomization A boolean value indicating whether to use randomization in the
+ * algorithm or not.
  * @return A pointer to the PrimResult structure containing the MST.
  ******************************************************************************************/
-PrimResult *primHeap(Graph* graph);
+PrimResult *primHeap(Graph* graph, bool randomization);
 
 /******************************************************************************************
  * @brief Print the minimum spanning tree (MST) of a graph.

@@ -1,12 +1,6 @@
-ifdef SYSTEMROOT
-    CC = x86_64-w64-mingw32-gcc
-    RM = del /Q
-else
-    CC = gcc
-    RM = rm -f
-endif
-
+CC = gcc
 CFLAGS = --std=c99 -Wall -Werror -Iinclude
+
 APP_NAME = main
 
 DEPS = $(wildcard include/*.h)
@@ -46,26 +40,26 @@ doc:
 	cp doc/latex/refman.pdf doc/doc.pdf
 
 clean-obj:
-	$(RM) obj/*.o
+	rm -f obj/*.o
 
 clean-exe:
-	$(RM) bin/app/$(APP_NAME)
-	$(RM) bin/tests/*
+	rm -f bin/app/$(APP_NAME)
+	rm -f bin/tests/*
 
 clean-cvs:
-	$(RM) data/csv/*
+	rm -f data/csv/*
 
 clean-plot:
-	$(RM) data/plot/*
+	rm -f data/plot/*
 
 clean-generated:
-	$(RM) generated/*
+	rm -f generated/*
 
 clean-upload:
-	$(RM) upload/*
+	rm -f upload/*
 
 clean-doc:
-	$(RM) -rf doc/*
+	rm -f doc/*
 
 full-clean: clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload clean-doc
 
@@ -75,4 +69,4 @@ git-push:
 	git commit -m "$$message"
 	git push
 
-.PHONY: all compile-app compile-tests launch-app launch-tests doc clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload full-clean clean-doc git-push
+.PHONY: all compile-app compile-tests launch-app launch-tests doc clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload clean-doc full-clean git-push

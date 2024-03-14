@@ -69,7 +69,7 @@ int main() {
     fclose(file);
 
     char command[256];
-    sprintf(command, "python data/plotHeapComplexity.py %s", fileName);
+    sprintf(command, "venv/bin/python data/plotHeapComplexity.py %s", fileName);
     system(command);
 
     printf("%s\n", command);
