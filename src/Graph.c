@@ -9,6 +9,10 @@ Node* createNode(int idDestinationNode, int cost) {
     return newNode;
 }
 
+void freeNode(Node* node) {
+    free(node);
+}
+
 Graph *createGraph(int numNodes) {
     Graph *graph = (Graph*)malloc(sizeof(Graph));
     graph->numNodes = numNodes;
@@ -19,6 +23,20 @@ Graph *createGraph(int numNodes) {
     }
 
     return graph;
+}
+
+void freeGraph(Graph *graph) {
+    for (int i = 0; i < graph->numNodes; i++) {
+        Node* temp = graph->adjList[i].headNode;
+        while (temp) {
+            Node* next = temp->nextNode;
+            freeNode(temp);
+            temp = next;
+        }
+    }
+
+    free(graph->adjList);
+    free(graph);
 }
 
 void addEdge(Graph *graph, int idSourceNode, int idDestinationNode, int cost) {

@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <limits.h>
 
 /**
  * @struct MinHeapNode
@@ -44,6 +45,12 @@ MinHeapNode *createMinHeapNode(int idNode, int cost);
  * @return A pointer to the newly created MinHeap.
  */
 MinHeap *createMinHeap(int capacity);
+
+/**
+ * @brief Frees the memory allocated for the given MinHeap.
+ * @param minHeap Pointer to the MinHeap to be freed.
+ */
+void freeMinHeap(MinHeap *minHeap);
 
 /**
  * @brief Swaps two MinHeapNode pointers.

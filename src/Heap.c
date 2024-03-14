@@ -8,13 +8,25 @@ MinHeapNode *createMinHeapNode(int idNode, int cost) {
     return minHeapNode;
 }
 
+
 MinHeap *createMinHeap(int capacity) {
     MinHeap *minHeap = (MinHeap *)malloc(sizeof(MinHeap));
     minHeap->positions = (int *)malloc(capacity * sizeof(int));
     minHeap->size = 0;
     minHeap->capacity = capacity;
     minHeap->nodes = (MinHeapNode **)malloc(capacity * sizeof(MinHeapNode *));
+    for (int i = 0; i < capacity; i++) {
+        minHeap->nodes[i] = createMinHeapNode(i, INT_MAX);
+        minHeap->positions[i] = i;
+    }
+
     return minHeap;
+}
+
+void freeMinHeap(MinHeap *minHeap) {
+    free(minHeap->positions);
+    free(minHeap->nodes);
+    free(minHeap);
 }
 
 void swapMinHeapNode(MinHeapNode **a, MinHeapNode **b) {

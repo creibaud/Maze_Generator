@@ -11,5 +11,7 @@ int main(int argc, char *argv[]) {
     FileLoaded *fileLoaded = loadGraph(argv[1]);
     printGraph(fileLoaded->graph);
 
+    free(fileLoaded);
+
     return 0;
 }

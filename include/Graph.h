@@ -24,7 +24,7 @@ typedef struct Node {
  * @brief Represents the adjacency list for a node in the graph.
  */
 typedef struct {
-    Node *headNode;                 /**< Pointer to the head node of the adjacency list. */
+    Node *headNode;                 /**< Pointer to the adjacency list for a node. */
 } AdjList;
 
 /**
@@ -45,6 +45,12 @@ typedef struct {
 Node* createNode(int idDestinationNode, int cost);
 
 /**
+ * @brief Frees the memory allocated for the given node.
+ * @param node Pointer to the node to be freed.
+ */
+void freeNode(Node* node);
+
+/**
  * @brief Creates a new graph with the given number of nodes.
  * @param numNodes The number of nodes in the graph.
  * @return Pointer to the newly created graph.
@@ -52,10 +58,10 @@ Node* createNode(int idDestinationNode, int cost);
 Graph* createGraph(int numNodes);
 
 /**
- * @brief Destroys the given graph and frees the memory.
- * @param graph Pointer to the graph to be destroyed.
+ * @brief Frees the memory allocated for the given graph.
+ * @param graph Pointer to the graph to be freed.
  */
-void destroyGraph(Graph* graph);
+void freeGraph(Graph* graph);
 
 /**
  * @brief Adds an edge between the source node and the destination node with the given cost.

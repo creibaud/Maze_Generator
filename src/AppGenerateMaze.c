@@ -4,7 +4,7 @@ bool useMazeFile() {
 	char userInput;
 	printf("Do you want to load a maze from a file? (y/n)\n");
 	
-	while (1) {
+	while (true) {
 		printf("\033[33;92m>\033[0m \033[33;96m");
 		scanf("%c", &userInput);
 		printf("\033[0m");
@@ -27,6 +27,11 @@ void uploadGraph(int *width, int *height, Graph *graph) {
 	dir = opendir("upload/");
 	if (dir == NULL) {
 		fprintf(stderr, "\033[33;91mError opening directory\033[0m\n");
+		for (int i = 0; i < 100; i++) {
+			free(fileNames[i]);
+		}
+		free(fileNames);
+		free(graph);
 		exit(EXIT_FAILURE);
 	}
 
@@ -35,14 +40,15 @@ void uploadGraph(int *width, int *height, Graph *graph) {
 	while ((entry = readdir(dir)) != NULL) {
 		if (strstr(entry->d_name, ".txt") != NULL) {
 			printf("\033[33;33m%d.\033[0m %s\n", count, entry->d_name);
-			fileNames[count] = entry->d_name;
+			fileNames[count] = malloc(strlen(entry->d_name) + 1);
+            strcpy(fileNames[count], entry->d_name);
 			count++;
 		}
 	}
 	closedir(dir);
 
 	int fileNumber;
-	while (1) {
+	while (true) {
 		printf("\033[33;92m>\033[0m \033[33;96m");
 		scanf("%d", &fileNumber);
 		printf("\033[0m");
@@ -55,6 +61,13 @@ void uploadGraph(int *width, int *height, Graph *graph) {
 	}
 
 	char *fileName = fileNames[fileNumber];
+	for (int i = 0; i < count; i++) {
+		if (i != fileNumber) {
+			free(fileNames[i]);
+		}
+	}
+	free(fileNames);
+
 	char *filePath = malloc(200 * sizeof(char));
 	strcpy(filePath, "upload/");
 	strcat(filePath, fileName);
@@ -62,12 +75,19 @@ void uploadGraph(int *width, int *height, Graph *graph) {
 	FileLoaded *fileLoaded = loadGraph(filePath);
 	if (fileLoaded == NULL) {
 		fprintf(stderr, "\033[33;91mError loading file\033[0m\n");
+		free(fileName);
+		free(filePath);
+		free(graph);
 		exit(EXIT_FAILURE);
 	}
 
 	*width = fileLoaded->width;
 	*height = fileLoaded->height;
-	graph = fileLoaded->graph;
+	*graph = *fileLoaded->graph;
+
+	free(fileName);
+	free(filePath);
+	free(fileLoaded);
 }
 
 void generateGraph(int *width, int *height, Graph *graph) {
@@ -83,28 +103,45 @@ void generateGraph(int *width, int *height, Graph *graph) {
 
 	int w = *width;
 	int h = *height;
-	graph = createGraph(w * h);
-	int count = 0;
+	*graph = *createGraph(w * h);
 	int idSourceNode, idDestinationNode, cost;
+	int numVertices;
 
-	while (count < graph->numNodes) {
-		printf("Enter the edges of the graph (source destination cost): ");
-		printf("\033[33;92m>\033[0m \033[33;96m");
-		int scanfResult = scanf("%d %d %d", &idSourceNode, &idDestinationNode, &cost);
-		printf("\033[0m");
+	for (idSourceNode = 0; idSourceNode < graph->numNodes; idSourceNode++) {
+		while (true) {
+			printf("Enter the number of vertices connected to vertex %d: ", idSourceNode);
+			printf("\033[33;92m>\033[0m \033[33;96m");
+			scanf("%d", &numVertices);
+			printf("\033[0m");
 
-		if (scanfResult != 3) {
-			fprintf(stderr, "\033[33;91mInvalid input. Please enter 3 integers\033[0m\n");
-			continue;
+			if (numVertices >= 0 && numVertices < graph->numNodes) {
+				break;
+			} else {
+				fprintf(stderr, "\033[33;91mInvalid input. Please enter a valid number\033[0m\n");
+			}
 		}
 
-		if (idSourceNode < 0 || idSourceNode >= graph->numNodes || idDestinationNode < 0 || idDestinationNode >= graph->numNodes) {
-			fprintf(stderr, "\033[33;91mInvalid input. Please enter valid nodes\033[0m\n");
-			continue;
-		}
+		for (int i = 0; i < numVertices; i++) {
+			while (true) {
+				printf("Enter the ID of the destination vertex: ");
+				printf("\033[33;92m>\033[0m \033[33;96m");
+				scanf("%d", &idDestinationNode);
+				printf("\033[0m");
 
-		addEdge(graph, idSourceNode, idDestinationNode, cost);
-		count++;
+				if (idDestinationNode >= 0 && idDestinationNode < graph->numNodes) {
+					break;
+				} else {
+					fprintf(stderr, "\033[33;91mInvalid input. Please enter a valid number\033[0m\n");
+				}
+			}
+
+			printf("Enter the cost of the edge: ");
+			printf("\033[33;92m>\033[0m \033[33;96m");
+			scanf("%d", &cost);
+			printf("\033[0m");
+
+			addEdge(graph, idSourceNode, idDestinationNode, cost);
+		}
 	}
 }
 
@@ -114,7 +151,7 @@ int chooseAlgo() {
 	printf("\033[33;33m2.\033[0m Prim with Heap\n");
 
 	int algorithm;
-	while (1) {
+	while (true) {
 		printf("\033[33;92m>\033[0m \033[33;96m");
 		scanf("%d", &algorithm);
 		printf("\033[0m");
@@ -133,7 +170,7 @@ bool doYouSaveFile() {
 	char userInput;
 	printf("Do you want to save the maze to a file ? (y/n)\n");
 	
-	while (1) {
+	while (true) {
 		printf("\033[33;92m>\033[0m \033[33;96m");
 		scanf("%c", &userInput);
 		printf("\033[0m");
@@ -160,4 +197,7 @@ void saveFile(Maze *maze) {
 	strcat(filePath, ".ppm");
 
 	printPPM(maze, filePath);
+
+	free(fileName);
+	free(filePath);
 }

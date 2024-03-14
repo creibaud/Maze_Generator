@@ -12,10 +12,8 @@ FileLoaded *loadGraph(char *filename) {
 
     FileLoaded *fileLoaded = (FileLoaded *)malloc(sizeof(FileLoaded));
     
-    fscanf(file, "%d %d", &fileLoaded->width, &fileLoaded->height);
-    Graph *graph = createGraph(fileLoaded->width * fileLoaded->height);
-    
-    int fscanfResult;
+    int fscanfResult = fscanf(file, "%d %d", &fileLoaded->width, &fileLoaded->height);
+    fileLoaded->graph = createGraph(fileLoaded->width * fileLoaded->height);
 
     while (fscanfResult != EOF) {
         int idSourceNode;
@@ -28,10 +26,9 @@ FileLoaded *loadGraph(char *filename) {
             break;
         }
 
-        addEdge(graph, idSourceNode, idDestinationNode, cost);
+        addEdge(fileLoaded->graph, idSourceNode, idDestinationNode, cost);
     }
     
-    fileLoaded->graph = graph;
     fclose(file);
 
     return fileLoaded;

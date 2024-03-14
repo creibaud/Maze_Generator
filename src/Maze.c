@@ -1,7 +1,7 @@
 #include "../include/Maze.h"
 
 Maze *createMaze(Graph *graph, int width, int height, char *typePrim) {
-    PrimResult *resultPrim = (PrimResult *)malloc(sizeof(PrimResult));
+    PrimResult *resultPrim = NULL;
 
     if (strcmp(typePrim, "heap") == 0) {
         resultPrim = primHeap(graph);
@@ -43,7 +43,18 @@ Maze *createMaze(Graph *graph, int width, int height, char *typePrim) {
         maze->matrix[rowMazeMiddle][colMazeMiddle] = true;
     }
 
+    free(resultPrim->predecessors);
+    free(resultPrim);
+
     return maze;
+}
+
+void freeMaze(Maze *maze) {
+    for (int i = 0; i < maze->height; i++) {
+        free(maze->matrix[i]);
+    }
+    free(maze->matrix);
+    free(maze);
 }
 
 void printPPM(Maze *maze, char *filename) {

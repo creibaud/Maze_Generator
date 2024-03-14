@@ -30,6 +30,13 @@ typedef struct {
 Maze *createMaze(Graph *graph, int width, int height, char *typePrim);
 
 /**
+ * @brief Frees the memory allocated for the given maze.
+ *
+ * @param maze The maze to free.
+ */
+void freeMaze(Maze *maze);
+
+/**
  * @brief Prints the maze as a PPM image file.
  *
  * @param maze The maze to print.

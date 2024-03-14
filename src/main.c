@@ -10,12 +10,15 @@ int main(int argc, char *argv[]) {
         FileLoaded *fileLoaded = loadGraph(filename);
         if (fileLoaded == NULL) {
             fprintf(stderr, "\033[33;91mError loading file\033[0m\n");
+            free(graph);
             exit(EXIT_FAILURE);
         }
 
         width = fileLoaded->width;
         height = fileLoaded->height;
-        graph = fileLoaded->graph;
+        *graph = *fileLoaded->graph;
+
+        free(fileLoaded);
     } else {
         bool userUseMazeFile = useMazeFile();
 
@@ -35,6 +38,8 @@ int main(int argc, char *argv[]) {
 	}
 
 	printGraph(graph);
+    freeGraph(graph);
+
 	printMaze(maze);
 
 	bool userSaveFile = doYouSaveFile();
@@ -42,6 +47,8 @@ int main(int argc, char *argv[]) {
 	if (userSaveFile) {
 		saveFile(maze);
 	}
+
+    freeMaze(maze);
 
     exit(EXIT_SUCCESS);
 }

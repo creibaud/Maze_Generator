@@ -29,6 +29,7 @@ int main() {
 
     if (file == NULL) {
         fprintf(stderr, "\033[33;91mError opening file\033[0m\n");
+        free(fileName);
         exit(EXIT_FAILURE);
     }
 
@@ -72,6 +73,8 @@ int main() {
     system(command);
 
     printf("%s\n", command);
+
+    free(fileName);
 
     return 0;
 }

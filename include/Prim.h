@@ -11,8 +11,6 @@
 
 #include "Graph.h"
 #include "Heap.h"
-#include <limits.h>
-#include <stdbool.h>
 
 /**
  * @struct PrimResult

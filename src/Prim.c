@@ -21,6 +21,7 @@ PrimResult *prim(Graph* graph) {
     int totalCost = 0;
 
     for (int i = 0; i < graph->numNodes; i++) {
+        predecessors[i] = -1;
         costs[i] = INT_MAX;
         visited[i] = false;
     }
@@ -50,6 +51,9 @@ PrimResult *prim(Graph* graph) {
     result->predecessors = predecessors;
     result->totalCost = totalCost;
 
+    free(costs);
+    free(visited);
+
     return result;
 }
 
@@ -62,8 +66,6 @@ PrimResult *primHeap(Graph* graph) {
     for (int i = 0; i < graph->numNodes; i++) {
         predecessors[i] = -1;
         costs[i] = INT_MAX;
-        minHeap->nodes[i] = createMinHeapNode(i, costs[i]);
-        minHeap->positions[i] = i;
     }
 
     int startNodeId = 0;
@@ -94,6 +96,9 @@ PrimResult *primHeap(Graph* graph) {
     PrimResult *result = (PrimResult *)malloc(sizeof(PrimResult));
     result->predecessors = predecessors;
     result->totalCost = totalCost;
+
+    freeMinHeap(minHeap);
+    free(costs);
     
     return result;
 }
