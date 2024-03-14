@@ -11,6 +11,7 @@
 
 #include "Graph.h"
 #include "Heap.h"
+#include <time.h>
 
 /******************************************************************************************
  * @struct PrimResult

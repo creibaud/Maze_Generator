@@ -26,8 +26,9 @@ PrimResult *prim(Graph* graph) {
         visited[i] = false;
     }
 
-    costs[0] = 0;
-    predecessors[0] = -1;
+    srand(time(NULL));
+    int startNodeId = rand() % graph->numNodes;
+    costs[startNodeId] = 0;
 
     for (int _ = 0; _ < graph->numNodes - 1; _++) {
         int currentNodeIndex = minCostIndex(costs, visited, graph->numNodes);
@@ -69,7 +70,8 @@ PrimResult *primHeap(Graph* graph) {
         costs[i] = INT_MAX;
     }
 
-    int startNodeId = 0;
+    srand(time(NULL));
+    int startNodeId = rand() % graph->numNodes;
     costs[startNodeId] = 0;
     minHeap->nodes[startNodeId]->idNode = startNodeId;
     minHeap->nodes[startNodeId]->cost = costs[startNodeId];
