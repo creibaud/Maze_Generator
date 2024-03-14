@@ -26,7 +26,8 @@ install:
 	sudo apt install doxygen -y
 	python -m venv venv
 	. venv/bin/activate
-	pip install -r requirements.txt
+	pip install pandas
+	pip install matplotlib
 
 $(APP_NAME): $(OBJ)
 	mkdir -p bin/app
