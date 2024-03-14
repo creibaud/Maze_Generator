@@ -1,6 +1,12 @@
-CC = gcc
-CFLAGS = --std=c99 -Wall -Werror -Iinclude
+ifdef SYSTEMROOT
+    CC = x86_64-w64-mingw32-gcc
+    RM = del /Q
+else
+    CC = gcc
+    RM = rm -f
+endif
 
+CFLAGS = --std=c99 -Wall -Werror -Iinclude
 APP_NAME = main
 
 DEPS = $(wildcard include/*.h)
@@ -40,23 +46,23 @@ doc:
 	cp doc/latex/refman.pdf doc/doc.pdf
 
 clean-obj:
-	rm -f obj/*.o
+	$(RM) obj/*.o
 
 clean-exe:
-	rm -f bin/app/$(APP_NAME)
-	rm -f bin/tests/*
+	$(RM) bin/app/$(APP_NAME)
+	$(RM) bin/tests/*
 
 clean-cvs:
-	rm -f data/csv/*
+	$(RM) data/csv/*
 
 clean-plot:
-	rm -f data/plot/*
+	$(RM) data/plot/*
 
 clean-generated:
-	rm -f generated/*
+	$(RM) generated/*
 
 clean-upload:
-	rm -f upload/*
+	$(RM) upload/*
 
 full-clean: clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload
 
