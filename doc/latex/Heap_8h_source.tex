@@ -1,0 +1,106 @@
+\doxysection{Heap.\+h}
+\hypertarget{Heap_8h_source}{}\label{Heap_8h_source}\index{include/Heap.h@{include/Heap.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ Heap.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ This\ file\ contains\ the\ declarations\ of\ the\ MinHeap\ data\ structure\ and\ related\ }}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ functions.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ HEAP\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ HEAP\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <limits.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ @struct\ MinHeapNode}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ @brief\ Represents\ a\ node\ in\ the\ MinHeap.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMinHeapNode_a956791307a0cb641076a36bb22097a34}{idNode}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMinHeapNode_afce7368be36b92f8e14532d31b67ad72}{cost}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00022\ \}\ \mbox{\hyperlink{structMinHeapNode}{MinHeapNode}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ @struct\ MinHeap}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @brief\ Represents\ a\ MinHeap\ data\ structure.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMinHeap_a656a275b0ca8c80647d6251c09d31247}{size}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMinHeap_a88b4aa3e66392a3eabbf2517a9a79a02}{capacity}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structMinHeap_a945c2b9df75d46a78b7c99bbf1521a17}{positions}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{structMinHeapNode}{MinHeapNode}}\ **\mbox{\hyperlink{structMinHeap_a87e4ae4c2514a8bf77b203e863b4b709}{nodes}};\ \ \ \ }
+\DoxyCodeLine{00033\ \}\ \mbox{\hyperlink{structMinHeap}{MinHeap}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ new\ MinHeapNode\ with\ the\ given\ ID\ and\ cost.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ @param\ idNode\ The\ ID\ of\ the\ node.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ @param\ cost\ The\ cost\ associated\ with\ the\ node.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ newly\ created\ MinHeapNode.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{structMinHeapNode}{MinHeapNode}}\ *createMinHeapNode(\textcolor{keywordtype}{int}\ idNode,\ \textcolor{keywordtype}{int}\ cost);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ new\ MinHeap\ with\ the\ given\ capacity.}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ @param\ capacity\ The\ maximum\ capacity\ of\ the\ MinHeap.}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ newly\ created\ MinHeap.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00048\ \mbox{\hyperlink{structMinHeap}{MinHeap}}\ *createMinHeap(\textcolor{keywordtype}{int}\ capacity);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ @brief\ Frees\ the\ memory\ allocated\ for\ the\ given\ MinHeap.}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ @param\ minHeap\ Pointer\ to\ the\ MinHeap\ to\ be\ freed.}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ freeMinHeap(\mbox{\hyperlink{structMinHeap}{MinHeap}}\ *minHeap);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ @brief\ Swaps\ two\ MinHeapNode\ pointers.}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ @param\ a\ Pointer\ to\ the\ first\ MinHeapNode\ pointer.}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ @param\ b\ Pointer\ to\ the\ second\ MinHeapNode\ pointer.}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ swapMinHeapNode(\mbox{\hyperlink{structMinHeapNode}{MinHeapNode}}\ **a,\ \mbox{\hyperlink{structMinHeapNode}{MinHeapNode}}\ **b);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ @brief\ Restores\ the\ MinHeap\ property\ starting\ from\ the\ given\ node\ index.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ @param\ minHeap\ Pointer\ to\ the\ MinHeap.}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ @param\ idNode\ The\ index\ of\ the\ node\ to\ start\ heapify\ from.}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ minHeapify(\mbox{\hyperlink{structMinHeap}{MinHeap}}\ *minHeap,\ \textcolor{keywordtype}{int}\ idNode);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ @brief\ Checks\ if\ the\ MinHeap\ is\ empty.}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *\ @param\ minHeap\ Pointer\ to\ the\ MinHeap.}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ @return\ True\ if\ the\ MinHeap\ is\ empty,\ false\ otherwise.}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{bool}\ isMinHeapEmpty(\mbox{\hyperlink{structMinHeap}{MinHeap}}\ *minHeap);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ *\ @brief\ Extracts\ the\ node\ with\ the\ minimum\ cost\ from\ the\ MinHeap.}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ *\ @param\ minHeap\ Pointer\ to\ the\ MinHeap.}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ MinHeapNode\ with\ the\ minimum\ cost.}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00082\ \mbox{\hyperlink{structMinHeapNode}{MinHeapNode}}\ *extractMinHeapNode(\mbox{\hyperlink{structMinHeap}{MinHeap}}\ *minHeap);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ *\ @brief\ Decreases\ the\ cost\ of\ the\ node\ with\ the\ given\ ID\ in\ the\ MinHeap.}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ *\ @param\ minHeap\ Pointer\ to\ the\ MinHeap.}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ @param\ idNode\ The\ ID\ of\ the\ node.}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ @param\ newCost\ The\ new\ cost\ for\ the\ node.}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ decreaseMinHeapNodeCost(\mbox{\hyperlink{structMinHeap}{MinHeap}}\ *minHeap,\ \textcolor{keywordtype}{int}\ idNode,\ \textcolor{keywordtype}{int}\ newCost);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ *\ @brief\ Checks\ if\ the\ node\ with\ the\ given\ ID\ is\ present\ in\ the\ MinHeap.}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ @param\ minHeap\ Pointer\ to\ the\ MinHeap.}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ *\ @param\ idNode\ The\ ID\ of\ the\ node.}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ @return\ True\ if\ the\ node\ is\ present\ in\ the\ MinHeap,\ false\ otherwise.}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{bool}\ isInMinHeap(\mbox{\hyperlink{structMinHeap}{MinHeap}}\ *minHeap,\ \textcolor{keywordtype}{int}\ idNode);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ HEAP\_H}}
+
+\end{DoxyCode}

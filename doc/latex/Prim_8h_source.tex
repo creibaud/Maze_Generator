@@ -1,0 +1,86 @@
+\doxysection{Prim.\+h}
+\hypertarget{Prim_8h_source}{}\label{Prim_8h_source}\index{include/Prim.h@{include/Prim.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ Prim.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ Header\ file\ for\ Prim's\ algorithm\ implementation.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ This\ file\ contains\ the\ declarations\ of\ functions\ and\ structures\ related\ to\ Prim's\ }}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ algorithm.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Prim's\ algorithm\ is\ used\ to\ find\ the\ minimum\ spanning\ tree\ (MST)\ of\ a\ graph.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ PRIM\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ PRIM\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Graph.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Heap.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ @struct\ PrimResult}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ @brief\ Structure\ to\ store\ the\ result\ of\ Prim's\ algorithm.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ structure\ contains\ the\ predecessors\ array\ and\ the\ total\ cost\ of\ the\ MST.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ *\mbox{\hyperlink{structPrimResult_aee4a0e9a2ca99fe99760a82d67cacd8f}{predecessors}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structPrimResult_ac2a7e7081b749203d9f7b0ba112be441}{totalCost}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00024\ \}\ \mbox{\hyperlink{structPrimResult}{PrimResult}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @brief\ Find\ the\ index\ of\ the\ node\ with\ the\ minimum\ cost\ that\ is\ not\ yet\ included\ in\ }}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ the\ MST.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ This\ function\ takes\ an\ array\ of\ costs\ and\ a\ boolean\ array\ indicating\ whether\ a\ node\ }}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ is\ already}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ included\ in\ the\ MST.\ It\ returns\ the\ index\ of\ the\ node\ with\ the\ minimum\ cost\ that\ is\ }}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ not\ yet\ included}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ in\ the\ MST.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ @param\ cost\ The\ array\ of\ costs\ for\ each\ node.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ @param\ mstSet\ The\ boolean\ array\ indicating\ whether\ a\ node\ is\ already\ included\ in\ the\ MST.}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ @param\ numNodes\ The\ number\ of\ nodes\ in\ the\ graph.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ @return\ The\ index\ of\ the\ node\ with\ the\ minimum\ cost\ that\ is\ not\ yet\ included\ in\ the\ MST.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ minCostIndex(\textcolor{keywordtype}{int}\ *cost,\ \textcolor{keywordtype}{bool}\ *mstSet,\ \textcolor{keywordtype}{int}\ numNodes);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ @brief\ Find\ the\ minimum\ spanning\ tree\ (MST)\ of\ a\ graph\ using\ Prim's\ algorithm.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ This\ function\ takes\ a\ graph\ and\ returns\ the\ minimum\ spanning\ tree\ (MST)\ using\ Prim's\ }}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ algorithm.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ It\ uses\ an\ adjacency\ matrix\ representation\ of\ the\ graph.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ @param\ graph\ The\ graph\ for\ which\ to\ find\ the\ MST.}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ PrimResult\ structure\ containing\ the\ MST.}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00052\ \mbox{\hyperlink{structPrimResult}{PrimResult}}\ *prim(\mbox{\hyperlink{structGraph}{Graph}}*\ graph);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ @brief\ Find\ the\ minimum\ spanning\ tree\ (MST)\ of\ a\ graph\ using\ Prim's\ algorithm\ with\ a\ }}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ heap.}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ This\ function\ takes\ a\ graph\ and\ returns\ the\ minimum\ spanning\ tree\ (MST)\ using\ Prim's\ }}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ algorithm.}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ It\ uses\ a\ binary\ heap\ to\ efficiently\ find\ the\ node\ with\ the\ minimum\ cost.}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ @param\ graph\ The\ graph\ for\ which\ to\ find\ the\ MST.}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ PrimResult\ structure\ containing\ the\ MST.}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00065\ \mbox{\hyperlink{structPrimResult}{PrimResult}}\ *primHeap(\mbox{\hyperlink{structGraph}{Graph}}*\ graph);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ @brief\ Print\ the\ minimum\ spanning\ tree\ (MST)\ of\ a\ graph.}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ This\ function\ takes\ a\ graph,\ an\ array\ of\ predecessors,\ and\ an\ array\ of\ costs,\ and\ prints}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ the\ minimum}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *\ spanning\ tree\ (MST)\ of\ the\ graph.}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ @param\ graph\ The\ graph\ for\ which\ to\ print\ the\ MST.}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ @param\ predecessors\ The\ array\ of\ predecessors\ for\ each\ node\ in\ the\ MST.}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ *\ @param\ costs\ The\ array\ of\ costs\ for\ each\ node\ in\ the\ MST.}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ printMST(\mbox{\hyperlink{structGraph}{Graph}}*\ graph,\ \textcolor{keywordtype}{int}\ *predecessors,\ \textcolor{keywordtype}{int}\ *costs);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PRIM\_H}}
+
+\end{DoxyCode}

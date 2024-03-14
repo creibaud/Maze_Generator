@@ -1,0 +1,82 @@
+\doxysection{Graph.\+h}
+\hypertarget{Graph_8h_source}{}\label{Graph_8h_source}\index{include/Graph.h@{include/Graph.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ Graph.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ This\ file\ contains\ the\ declarations\ of\ the\ Graph\ data\ structure\ and\ related\ }}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ functions.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ GRAPH\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ @struct\ Node}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ @brief\ Represents\ a\ node\ in\ the\ graph.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNode}{Node}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNode_a7b049b09f94379308e186af88067f2ff}{idDestinationNode}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNode_aae24f318bd4b6d14270084cec3fc98b5}{cost}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNode}{Node}}*\ \mbox{\hyperlink{structNode_a50df4290f71785a6ef77359a13bbaa5d}{nextNode}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{structNode}{Node}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ @struct\ AdjList}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ @brief\ Represents\ the\ adjacency\ list\ for\ a\ node\ in\ the\ graph.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structNode}{Node}}\ *\mbox{\hyperlink{structAdjList_a11018ce47efb9bb32f5def73d6598118}{headNode}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{structAdjList}{AdjList}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ @struct\ Graph}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ @brief\ Represents\ the\ graph.}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structGraph_ad3db12d7f8327a6717fd161d694e43c0}{numNodes}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structAdjList}{AdjList}}*\ \mbox{\hyperlink{structGraph_a0ba3312da9dd7a2cc2622ff8434d86db}{adjList}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \}\ \mbox{\hyperlink{structGraph}{Graph}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ new\ node\ with\ the\ given\ destination\ node\ ID\ and\ cost.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ @param\ idDestinationNode\ The\ ID\ of\ the\ destination\ node.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ @param\ cost\ The\ cost\ of\ the\ edge\ to\ the\ destination\ node.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ @return\ Pointer\ to\ the\ newly\ created\ node.}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00046\ \mbox{\hyperlink{structNode}{Node}}*\ createNode(\textcolor{keywordtype}{int}\ idDestinationNode,\ \textcolor{keywordtype}{int}\ cost);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ new\ graph\ with\ the\ given\ number\ of\ nodes.}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ @param\ numNodes\ The\ number\ of\ nodes\ in\ the\ graph.}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ @return\ Pointer\ to\ the\ newly\ created\ graph.}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00053\ \mbox{\hyperlink{structGraph}{Graph}}*\ createGraph(\textcolor{keywordtype}{int}\ numNodes);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ @brief\ Frees\ the\ memory\ allocated\ for\ the\ given\ graph.}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ @param\ graph\ Pointer\ to\ the\ graph\ to\ be\ freed.}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ freeGraph(\mbox{\hyperlink{structGraph}{Graph}}*\ graph);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ @brief\ Adds\ an\ edge\ between\ the\ source\ node\ and\ the\ destination\ node\ with\ the\ given\ cost.}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ @param\ graph\ Pointer\ to\ the\ graph.}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ @param\ idSourceNode\ The\ ID\ of\ the\ source\ node.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ @param\ idDestinationNode\ The\ ID\ of\ the\ destination\ node.}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ @param\ cost\ The\ cost\ of\ the\ edge.}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ addEdge(\mbox{\hyperlink{structGraph}{Graph}}*\ graph,\ \textcolor{keywordtype}{int}\ idSourceNode,\ \textcolor{keywordtype}{int}\ idDestinationNode,\ \textcolor{keywordtype}{int}\ cost);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ @brief\ Prints\ the\ graph.}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ *\ @param\ graph\ Pointer\ to\ the\ graph\ to\ be\ printed.}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ printGraph(\mbox{\hyperlink{structGraph}{Graph}}*\ graph);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GRAPH\_H}}
+
+\end{DoxyCode}

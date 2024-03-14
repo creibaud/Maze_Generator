@@ -64,7 +64,10 @@ clean-generated:
 clean-upload:
 	$(RM) upload/*
 
-full-clean: clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload
+clean-doc:
+	$(RM) -rf doc/*
+
+full-clean: clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload clean-doc
 
 git-push:
 	git add .
@@ -72,4 +75,4 @@ git-push:
 	git commit -m "$$message"
 	git push
 
-.PHONY: all compile-app compile-tests launch-app launch-tests doc clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload full-clean git-push
+.PHONY: all compile-app compile-tests launch-app launch-tests doc clean-obj clean-exe clean-cvs clean-plot clean-generated clean-upload full-clean clean-doc git-push

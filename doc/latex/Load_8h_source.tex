@@ -1,0 +1,36 @@
+\doxysection{Load.\+h}
+\hypertarget{Load_8h_source}{}\label{Load_8h_source}\index{include/Load.h@{include/Load.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ Load.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ This\ file\ contains\ the\ declarations\ of\ the\ functions\ used\ to\ load\ a\ graph\ }}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ from\ a\ file.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ LOAD\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ LOAD\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Maze.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ @struct\ FileLoaded}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ @brief\ Represents\ the\ loaded\ file\ data.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structFileLoaded_a89db40c6480a4adeccdbdbde5c5e3033}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structFileLoaded_a0a77ea882284a298409fbbcb8e5a6ba2}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{structGraph}{Graph}}\ *\mbox{\hyperlink{structFileLoaded_a10310d02b5b0a8fb0894ab06a138e894}{graph}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \}\ \mbox{\hyperlink{structFileLoaded}{FileLoaded}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ @brief\ Loads\ a\ graph\ from\ a\ file.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ @param\ filename\ The\ name\ of\ the\ file\ to\ load.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ loaded\ file\ data.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00028\ \mbox{\hyperlink{structFileLoaded}{FileLoaded}}\ *loadGraph(\textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOAD\_H}}
+
+\end{DoxyCode}

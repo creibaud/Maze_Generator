@@ -1,0 +1,58 @@
+\doxysection{Maze.\+h}
+\hypertarget{Maze_8h_source}{}\label{Maze_8h_source}\index{include/Maze.h@{include/Maze.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @file\ Maze.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ @brief\ This\ file\ contains\ the\ declarations\ of\ the\ functions\ used\ to\ create\ and\ print\ }}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ a\ maze.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ MAZE\_H}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ MAZE\_H}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Prim.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ @struct\ Maze}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ @brief\ Structure\ representing\ a\ maze.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMaze_a773062dafae19d78f0d8b47846ea4286}{width}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMaze_a82fa5ab52766ae3b6cffa8a3eff41854}{height}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ **\mbox{\hyperlink{structMaze_a0236a26fa6ebb0671409fdabfdf761ec}{matrix}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{structMaze}{Maze}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ @brief\ Creates\ a\ maze\ based\ on\ a\ given\ graph\ and\ dimensions.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ @param\ graph\ The\ graph\ used\ to\ generate\ the\ maze.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @param\ width\ The\ width\ of\ the\ maze.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @param\ height\ The\ height\ of\ the\ maze.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ @param\ typePrim\ The\ type\ of\ Prim's\ algorithm\ to\ use.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ @return\ A\ pointer\ to\ the\ created\ maze.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00031\ \mbox{\hyperlink{structMaze}{Maze}}\ *createMaze(\mbox{\hyperlink{structGraph}{Graph}}\ *graph,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{char}\ *typePrim);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ @brief\ Frees\ the\ memory\ allocated\ for\ the\ given\ maze.}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ @param\ maze\ The\ maze\ to\ free.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ freeMaze(\mbox{\hyperlink{structMaze}{Maze}}\ *maze);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ @brief\ Prints\ the\ maze\ as\ a\ PPM\ image\ file.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ @param\ maze\ The\ maze\ to\ print.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ @param\ filename\ The\ name\ of\ the\ PPM\ image\ file.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ printPPM(\mbox{\hyperlink{structMaze}{Maze}}\ *maze,\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/******************************************************************************************}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ @brief\ Prints\ the\ maze\ to\ the\ console.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ @param\ maze\ The\ maze\ to\ print.}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ ******************************************************************************************/}}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ printMaze(\mbox{\hyperlink{structMaze}{Maze}}\ *maze);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAZE\_H}}
+
+\end{DoxyCode}
