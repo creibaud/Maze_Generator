@@ -25,9 +25,8 @@ install:
 	sudo apt install valgrind -y
 	sudo apt install doxygen -y
 	python -m venv venv
-	. venv/bin/activate
-	pip install pandas
-	pip install matplotlib
+	venv/bin/pip install pandas
+	venv/bin/pip install matplotlib
 
 $(APP_NAME): $(OBJ)
 	mkdir -p bin/app
