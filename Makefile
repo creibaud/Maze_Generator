@@ -14,8 +14,10 @@ obj/%.o: src/%.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 install:
-	sudo apt install valgrind
-	sudo apt install doxygen
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt install valgrind -y
+	sudo apt install doxygen -y
 	python -m venv venv
 	source venv/bin/activate
 	pip install -r requirements.txt
