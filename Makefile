@@ -28,7 +28,7 @@ tests/%: tests/%.c $(DEPS) $(filter-out src/main.c, $(SRC))
 	$(CC) -o bin/tests/$* $^ $(CFLAGS)
 
 launch-app:
-	./bin/app/$(APP_NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./bin/app/$(APP_NAME)
 
 launch-tests:
 	for test in bin/tests/*; do $$test upload/map.txt; done
