@@ -58,19 +58,21 @@ PrimResult *prim(Graph* graph) {
 }
 
 PrimResult *primHeap(Graph* graph) {
-    int *predecessors = (int*)malloc(graph->numNodes * sizeof(int));
+    PrimResult *result = (PrimResult *)malloc(sizeof(PrimResult));
+    result->predecessors = (int*)malloc(graph->numNodes * sizeof(int));
     int *costs = (int*)malloc(graph->numNodes * sizeof(int));
     MinHeap *minHeap = createMinHeap(graph->numNodes);
-    int totalCost = 0;
+    result->totalCost = 0;
 
     for (int i = 0; i < graph->numNodes; i++) {
-        predecessors[i] = -1;
+        result->predecessors[i] = -1;
         costs[i] = INT_MAX;
     }
 
     int startNodeId = 0;
     costs[startNodeId] = 0;
-    minHeap->nodes[startNodeId] = createMinHeapNode(startNodeId, costs[startNodeId]);
+    minHeap->nodes[startNodeId]->idNode = startNodeId;
+    minHeap->nodes[startNodeId]->cost = costs[startNodeId];
     minHeap->positions[startNodeId] = startNodeId;
     minHeap->size = graph->numNodes;
 
@@ -83,19 +85,17 @@ PrimResult *primHeap(Graph* graph) {
             int idDestinationNode = temp->idDestinationNode;
             if (isInMinHeap(minHeap, idDestinationNode) && temp->cost < costs[idDestinationNode]) {
                 costs[idDestinationNode] = temp->cost;
-                totalCost += temp->cost;
-                predecessors[idDestinationNode] = currentNodeIndex;
+                result->totalCost += temp->cost;
+                result->predecessors[idDestinationNode] = currentNodeIndex;
                 decreaseMinHeapNodeCost(minHeap, idDestinationNode, costs[idDestinationNode]);
             }
             temp = temp->nextNode;
         }
+        printf("-> %d %p\n", currentNodeIndex, currentNode);
+        free(currentNode);
     }
 
-    printMST(graph, predecessors, costs);
-
-    PrimResult *result = (PrimResult *)malloc(sizeof(PrimResult));
-    result->predecessors = predecessors;
-    result->totalCost = totalCost;
+    printMST(graph, result->predecessors, costs);
 
     freeMinHeap(minHeap);
     free(costs);

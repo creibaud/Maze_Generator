@@ -46,12 +46,6 @@ typedef struct {
 Node* createNode(int idDestinationNode, int cost);
 
 /******************************************************************************************
- * @brief Frees the memory allocated for the given node.
- * @param node Pointer to the node to be freed.
- */
-void freeNode(Node* node);
-
-/******************************************************************************************
  * @brief Creates a new graph with the given number of nodes.
  * @param numNodes The number of nodes in the graph.
  * @return Pointer to the newly created graph.

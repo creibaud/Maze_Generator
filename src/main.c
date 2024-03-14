@@ -17,7 +17,8 @@ int main(int argc, char *argv[]) {
         width = fileLoaded->width;
         height = fileLoaded->height;
         *graph = *fileLoaded->graph;
-
+        
+        free(fileLoaded->graph);
         free(fileLoaded);
     } else {
         bool userUseMazeFile = useMazeFile();

@@ -87,6 +87,8 @@ void uploadGraph(int *width, int *height, Graph *graph) {
 
 	free(fileName);
 	free(filePath);
+	
+	free(fileLoaded->graph);
 	free(fileLoaded);
 }
 
