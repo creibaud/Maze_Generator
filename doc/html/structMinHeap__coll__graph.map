@@ -1,5 +1,0 @@
-<map id="MinHeap" name="MinHeap">
-<area shape="rect" id="Node000001" title="Represents a MinHeap data structure." alt="" coords="23,93,103,119"/>
-<area shape="rect" id="Node000002" href="$structMinHeapNode.html" title="Represents a node in the MinHeap." alt="" coords="5,5,120,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,45,65,93,60,93,60,45"/>
-</map>
