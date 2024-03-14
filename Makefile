@@ -13,20 +13,20 @@ obj/%.o: src/%.c $(DEPS)
 	mkdir -p obj
 	$(CC) -c -o $@ $< $(CFLAGS)
 
+all: compile-app compile-tests
+
+compile-app: $(APP_NAME)
+
+compile-tests: $(TEST_OBJ)
+
 install:
 	sudo apt update
 	sudo apt upgrade -y
 	sudo apt install valgrind -y
 	sudo apt install doxygen -y
 	python -m venv venv
-	source venv/bin/activate
+	. venv/bin/activate
 	pip install -r requirements.txt
-
-all: compile-app compile-tests
-
-compile-app: $(APP_NAME)
-
-compile-tests: $(TEST_OBJ)
 
 $(APP_NAME): $(OBJ)
 	mkdir -p bin/app
