@@ -1,6 +1,6 @@
 import sys
-import pandas as pd
 import os
+import pandas as pd
 import matplotlib.pyplot as plt
 
 if len(sys.argv) < 2:
