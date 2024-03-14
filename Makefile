@@ -13,6 +13,13 @@ obj/%.o: src/%.c $(DEPS)
 	mkdir -p obj
 	$(CC) -c -o $@ $< $(CFLAGS)
 
+install:
+	sudo apt install valgrind
+	sudo apt install doxygen
+	python -m venv venv
+	source venv/bin/activate
+	pip install -r requirements.txt
+
 all: compile-app compile-tests
 
 compile-app: $(APP_NAME)
